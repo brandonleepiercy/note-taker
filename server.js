@@ -1,4 +1,4 @@
-// Module requirements
+// Dependencies
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -13,11 +13,10 @@ app.get("/", (req, res) => {
 // Get method for the notes path
 app.get("/notes", (req,res) => {
     res.sendFile(path.join(__dirname, "/notes.html"));
-    res.sendFile(path.join(__dirname, "/assets/css/styles.css"));
 });
 
 
-//Spinning server on the port defined in the module requirements
+//Spinning server on the port defined in the dependencies
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
