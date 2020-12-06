@@ -8,8 +8,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Router
-require("./routes/htmlRoutes")(app);
 require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 //Spinning server on port 7777
 app.listen(port, () => {
