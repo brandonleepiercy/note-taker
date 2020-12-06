@@ -2,21 +2,18 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const port = process.env.PORT || 7777;
+
+// Setting up express to handle data parsing
 const app = express();
-const port = 7777;
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Get method for the default path
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "/index.html"));
-});
+// Router
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
-// Get method for the notes path
-app.get("/notes", (req,res) => {
-    res.sendFile(path.join(__dirname, "/notes.html"));
-});
-
-
-//Spinning server on the port defined in the dependencies
+//Spinning server on port 7777
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
