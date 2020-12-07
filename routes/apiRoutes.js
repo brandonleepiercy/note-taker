@@ -9,7 +9,6 @@ module.exports = (app) => {
     });
 
     app.post("/api/notes", (req,res) => {
-//        let savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf-8"));
         let newNote = req.body;
         let noteID = (db.length).toString();
         newNote.id = noteID;
@@ -21,20 +20,18 @@ module.exports = (app) => {
     });
 
     app.delete("/api/notes/:id", (req,res) => {
+        //finding the id of the selected note
         let noteID = req.params.id;
         let newID = 0;
         console.log(`Deleting note with ID ${noteID}`);
-        // const filterForDelete = db.filter((currNote) => {
-        //     return currNote.id != noteID;
-        // })
-
+        //splicing out the selected note
         db.splice(noteID, 1)
         for (currNote of db) {
             currNote.id = newID.toString();
             newID++;
         };
         console.log(db)
-        
+        //re-writing the modified .json file
         fs.writeFileSync("./db/db.json", JSON.stringify(db));
         res.json(true);
     });
