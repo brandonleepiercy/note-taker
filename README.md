@@ -24,6 +24,8 @@ Taking notes, or saving tasks.
 
 Deployed at [Heroku](https://whispering-badlands-53834.herokuapp.com/)
 
+[Demo video on YouTube](https://www.youtube.com/watch?v=2A3zNSWgSss&feature=youtu.be)
+
 ## Credits
 
 Brandon Lee Piercy, Trilogy Education Services.
