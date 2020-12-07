@@ -22,6 +22,8 @@ Type "npm install" into CMD to install the neccesary packages for this repositor
 
 Taking notes, or saving tasks.
 
+Deployed at [Heroku](https://whispering-badlands-53834.herokuapp.com/)
+
 ## Credits
 
 Brandon Lee Piercy, Trilogy Education Services.
