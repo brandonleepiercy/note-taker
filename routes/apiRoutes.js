@@ -18,5 +18,22 @@ module.exports = (app) => {
         fs.writeFileSync("./db/db.json", JSON.stringify(savedNotes));
         console.log("New note saved to the .db file, note: "+newNote);
         res.json(db);
-    })
+    });
+
+    app.delete("/api/notes", (req,res) => {
+        let savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf-8"));
+        let noteID = req.params.id;
+        let newID = 0;
+        console.log(`Deleting note with ID ${noteID}`);
+        savedNotes = savedNotes.filter((currNote) => {
+            return currNote.id != noteID;
+        })
+        for (currNote of savedNotes) {
+            currNote.id = newID.toString();
+            newID++;
+        }
+        
+        fs.writeFileSync("./db/db.json", JSON.stringify(savedNotes));
+        res.json(db);
+    });
 };
